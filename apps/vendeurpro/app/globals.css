@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@import "@vpct/tokens/vendeurpro/tokens.css";
+@import "@vpct/tokens/vendeurpro/tokens.theme.css";
+@import "@vpct/tokens/vendeurpro/shadcn-bridge.css";
+@import "@vpct/tokens/vendeurpro/aliases.css";
+
+@source "../";
+@source "../../../packages/ui/src";
+
+:root {
+  --font-sans: var(--font-inter), "Inter", system-ui, sans-serif;
+}
+
+body {
+  font-feature-settings: "tnum" 1, "lnum" 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.money-inline .money-currency {
+  font-size: 0.78em;
+}
+
+/* Infobulle ApexCharts 7, branchée sur les variables shadcn (apex-theme.ts). */
+html .apexcharts-tooltip {
+  --apx-tt-bg: var(--popover);
+  --apx-tt-border: var(--border);
+  --apx-tt-color: var(--popover-foreground);
+  --apx-tt-color-muted: var(--muted-foreground);
+  border-radius: var(--radius-md);
+  font-family: var(--font-sans);
+}
+html .apexcharts-xaxistooltip,
+html .apexcharts-yaxistooltip {
+  --apx-axt-bg: var(--popover);
+  --apx-axt-border: var(--border);
+  --apx-axt-color: var(--popover-foreground);
+}

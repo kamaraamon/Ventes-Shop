@@ -1,0 +1,177 @@
+/* ==========================================================================
+   VendeurPro — design tokens (mode clair, mobile d'abord / Android)
+   Légende des commentaires :
+     [relevé wave.com] valeur mesurée sur wave.com/fr (styles calculés ou main.css, 28/09/2026)
+     [relevé Polaris]  valeur de @shopify/polaris-tokens 9.4.2 ou des aperçus de composants
+                       Polaris sur shopify.dev (polaris.shopify.com y redirige désormais)
+     [conçu]           valeur choisie pour VendeurPro (inspirée, pas relevée)
+     [marque tierce]   couleur d'un tiers, UNIQUEMENT pour les puces d'identification
+   Police : Inter (Google Fonts, licence OFL), utilisée par wave.com et Polaris.
+   ========================================================================== */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- Marque VendeurPro ---------- */
+  --color-primary: #3a4be0;          /* [conçu] indigo ; inspiré des accents #4164FF / #5B63FE [relevé wave.com]. Blanc dessus : 6.4:1 */
+  --color-primary-pressed: #2f3fc4;  /* [conçu] état appuyé. Blanc dessus : 8:1 */
+  --color-primary-subtle: #eef0ff;   /* [conçu] fond léger (chip sélectionné, bandeau) */
+  --color-on-primary: #ffffff;       /* [conçu] */
+  --color-ink: #14133b;              /* [conçu] bleu nuit pour titres et montants ; inspiré de #0E0D5D [relevé wave.com] */
+
+  /* ---------- Neutres (fond → texte) ---------- */
+  --color-bg: #f1f1f1;               /* [relevé Polaris] --p-color-bg */
+  --color-surface: #ffffff;          /* [relevé Polaris] --p-color-bg-surface */
+  --color-surface-muted: #f7f7f7;    /* [relevé Polaris] --p-color-bg-surface-secondary */
+  --color-surface-pressed: #f3f3f3;  /* [relevé Polaris] --p-color-bg-surface-tertiary */
+  --color-text: #303030;             /* [relevé Polaris] --p-color-text (13.2:1 sur blanc) */
+  --color-text-muted: #616161;       /* [relevé Polaris] --p-color-text-secondary (6.2:1) */
+  --color-text-disabled: #b5b5b5;    /* [relevé Polaris] --p-color-text-disabled */
+  --color-border: #e3e3e3;           /* [relevé Polaris] --p-color-border */
+  --color-border-strong: #8a8a8a;    /* [relevé Polaris] contour des champs (input-wrapper) */
+  --color-focus: #005bd3;            /* [relevé Polaris] --p-color-border-focus */
+  --color-link: #005bd3;             /* [relevé Polaris] --p-color-text-link */
+
+  /* ---------- Rôles sémantiques (Polaris) ---------- */
+  /* fond de badge / texte / fond plein / bordure */
+  --color-success-bg: #affebf;       /* [relevé Polaris] bg-fill-success-secondary (badge success) */
+  --color-success-text: #014b40;     /* [relevé Polaris] text-success */
+  --color-success-fill: #047b5d;     /* [relevé Polaris] bg-fill-success */
+  --color-success-surface: #cdfed4;  /* [relevé Polaris] bg-surface-success */
+  --color-info-bg: #d5ebff;          /* [relevé Polaris] bg-fill-info-secondary (badge info) */
+  --color-info-text: #003a5a;        /* [relevé Polaris] text-info */
+  --color-info-surface: #eaf4ff;     /* [relevé Polaris] bg-surface-info */
+  --color-warning-bg: #ffd6a4;       /* [relevé Polaris] bg-fill-warning-secondary (badge warning) */
+  --color-warning-text: #5e4200;     /* [relevé Polaris] text-warning */
+  --color-warning-fill: #ffb800;     /* [relevé Polaris] bg-fill-warning */
+  --color-warning-surface: #fff1e3;  /* [relevé Polaris] bg-surface-warning */
+  --color-critical-bg: #fed1d7;      /* [relevé Polaris] bg-fill-critical-secondary (badge critical) */
+  --color-critical-text: #8e0b21;    /* [relevé Polaris] text-critical */
+  --color-critical-fill: #c70a24;    /* [relevé Polaris] bg-fill-critical (blanc dessus : 6:1) */
+  --color-critical-surface: #fee8eb; /* [relevé Polaris] bg-surface-critical */
+  --color-neutral-bg: #f0f0f0;       /* [relevé Polaris] badge neutre rgba(0,0,0,.06) aplati sur blanc */
+  --color-neutral-text: #616161;     /* [relevé Polaris] */
+
+  /* ---------- Statuts métier VendeurPro (correspondance : conçu) ---------- */
+  --status-attente-bg: var(--color-warning-bg);      /* [conçu] "Acompte en attente" → warning */
+  --status-attente-text: var(--color-warning-text);
+  --status-en-cours-bg: var(--color-info-bg);        /* [conçu] "En cours" → info */
+  --status-en-cours-text: var(--color-info-text);
+  --status-livree-bg: var(--color-success-bg);       /* [conçu] "Livrée" → success */
+  --status-livree-text: var(--color-success-text);
+  --status-annulee-bg: var(--color-critical-bg);     /* [conçu] "Annulée" → critical doux */
+  --status-annulee-text: var(--color-critical-text);
+  --client-fiable-bg: var(--color-success-bg);       /* [conçu] "Fiable" → success */
+  --client-fiable-text: var(--color-success-text);
+  --client-signale-bg: var(--color-critical-fill);   /* [conçu] "Faux client signalé" → critical PLEIN, plus visible */
+  --client-signale-text: #ffffff;
+  --status-stock-faible-bg: var(--color-warning-bg);   /* [conçu] "Stock faible" → warning */
+  --status-stock-faible-text: var(--color-warning-text);
+  --status-rupture-bg: var(--color-critical-bg);       /* [conçu] "Rupture" → critical doux */
+  --status-rupture-text: var(--color-critical-text);
+  --client-a-surveiller-bg: var(--color-warning-bg);   /* [conçu] "À surveiller" → warning */
+  --client-a-surveiller-text: var(--color-warning-text);
+  --client-nouveau-bg: var(--color-neutral-bg);        /* [conçu] "Nouveau" → neutral */
+  --client-nouveau-text: var(--color-neutral-text);
+
+  /* ---------- Palette graphique catégorielle (ApexCharts, shadcn chart-1…5) [conçu] ---------- */
+  /* Ordre = ordre des séries. Toutes ≥ 3:1 sur la carte blanche (non-texte, WCAG 1.4.11).
+     Aucune n'est un vert, un ambre ou un rouge : les statuts (success / warning / critical) gardent leur sens.
+     Écart minimal entre deux couleurs : ΔE2000 ≥ 16,5 en vision normale, deutéranopie et protanopie
+     (simulation Machado 2009). Détails : chart-palette-report.md. */
+  --chart-1: #3a4be0; /* [conçu] indigo = primaire — 6.44:1 sur blanc, 5.70:1 sur --color-bg */
+  --chart-2: #c4621e; /* [conçu] cuivre — 4.11:1 sur blanc, 3.64:1 sur --color-bg (≠ orange Orange Money, ≠ ambre warning) */
+  --chart-3: #5b8fae; /* [conçu] bleu acier — 3.51:1 sur blanc, 3.11:1 sur --color-bg */
+  --chart-4: #5c3052; /* [conçu] prune — 10.50:1 sur blanc, 9.30:1 sur --color-bg */
+  --chart-5: #815848; /* [conçu] brun noisette — 6.14:1 sur blanc, 5.43:1 sur --color-bg */
+
+  /* ---------- Puces moyens de paiement (identification uniquement) ---------- */
+  /* Principe [conçu] : puce neutre (fond blanc + bordure) + pastille de couleur + nom en texte.
+     Pas de logo. Les couleurs ci-dessous sont des couleurs de marque de tiers. */
+  --pay-orange-money: #ff7900;  /* [marque tierce] orange Orange, NON relevé ici : valeur publique courante, à vérifier dans la charte */
+  --pay-mtn-momo: #ffcc00;      /* [marque tierce] jaune MTN, NON relevé ici : valeur publique courante, à vérifier dans la charte */
+  --pay-wave: #1dc8ff;          /* [marque tierce] [relevé wave.com] fond CTA de la page Business (#1AB3E5 sur l'accueil) */
+  --share-whatsapp: #25d366;    /* [marque tierce] vert WhatsApp, NON relevé : n'utiliser qu'en pastille/icône (blanc dessus : 2:1, insuffisant) */
+
+  /* ---------- Typographie ---------- */
+  --font-sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans", sans-serif; /* Inter [relevé wave.com + Polaris] ; repli [conçu] */
+  --font-numeric: "tnum" 1, "lnum" 1; /* [conçu] chiffres tabulaires pour montants et tableaux (Inter les supporte) */
+
+  --font-weight-regular: 450;  /* [relevé Polaris] */
+  --font-weight-medium: 550;   /* [relevé Polaris] */
+  --font-weight-semibold: 650; /* [relevé Polaris] */
+  --font-weight-bold: 700;     /* [relevé Polaris] */
+
+  /* Échelle mobile, base Polaris thème "light-mobile" (body-md 16/24, etc.) */
+  --text-xs: 12px;    --leading-xs: 16px;   /* [relevé Polaris] body-xs mobile : légendes uniquement */
+  --text-sm: 14px;    --leading-sm: 20px;   /* [relevé Polaris] body-sm mobile */
+  --text-md: 16px;    --leading-md: 24px;   /* [relevé Polaris] body-md mobile : TEXTE PAR DÉFAUT */
+  --text-lg: 18px;    --leading-lg: 28px;   /* [relevé Polaris] body-lg mobile (Wave mobile : paragraphe 18px [relevé wave.com]) */
+  --text-title: 22px; --leading-title: 28px; /* [relevé Polaris] heading-xl mobile : titre d'écran */
+  --text-display: 28px; --leading-display: 36px; /* [conçu] ; Wave mobile h1 28px/37px [relevé wave.com] */
+  --text-amount: 32px; --leading-amount: 40px;   /* [relevé Polaris] heading-2xl mobile 2rem/2.5rem → montant du jour */
+  --text-amount-sm: 18px;                         /* [conçu] montant dans une carte de commande */
+  --tracking-tight: -0.3px;  /* [relevé Polaris] letter-spacing-denser (-0.01875rem) : grands titres/montants */
+  --text-badge: 14px; --leading-badge: 20px;      /* [conçu] Polaris 12px/16px [relevé] agrandi pour le mobile */
+
+  /* ---------- Espacement (base 4px) ---------- */
+  --space-1: 4px;    /* [relevé Polaris] space-100 */
+  --space-2: 8px;    /* [relevé Polaris] space-200 ; écart entre cartes en mobile */
+  --space-3: 12px;   /* [relevé Polaris] space-300 */
+  --space-4: 16px;   /* [relevé Polaris] space-400 = padding de carte ; marge d'écran Wave mobile 16px [relevé wave.com] */
+  --space-5: 20px;   /* [relevé Polaris] space-500 */
+  --space-6: 24px;   /* [relevé Polaris] space-600 */
+  --space-8: 32px;   /* [relevé Polaris] space-800 */
+  --space-10: 40px;  /* [relevé Polaris] space-1000 */
+  --space-12: 48px;  /* [relevé Polaris] space-1200 */
+  --screen-padding: 16px; /* [conçu] = space-4 */
+  --card-padding: 16px;   /* [relevé Polaris] space-card-padding */
+  --card-gap: 8px;        /* [relevé Polaris] space-card-gap (thème mobile) */
+
+  /* ---------- Cibles tactiles ---------- */
+  --touch-min: 48px;      /* [conçu] minimum absolu (48dp Android) ; Polaris bouton 28px / champ 32px [relevé], Wave CTA mobile 37px [relevé] */
+  --control-height: 48px; /* [conçu] boutons, champs, puces */
+  --cta-height: 56px;     /* [conçu] gros CTA (Wave desktop : 78px [relevé wave.com]) */
+  --badge-height: 28px;   /* [conçu] non cliquable ; Polaris 20px [relevé] */
+  --bottom-nav-height: 64px; /* [conçu] */
+
+  /* ---------- Rayons ---------- */
+  --radius-sm: 8px;      /* [relevé Polaris] border-radius-200 : boutons, badges, champs Polaris */
+  --radius-md: 12px;     /* [relevé Polaris] border-radius-300 : cartes (s-section) → boutons/champs VendeurPro */
+  --radius-lg: 16px;     /* [relevé Polaris] border-radius-400 → cartes VendeurPro */
+  --radius-xl: 20px;     /* [relevé Polaris] border-radius-500 → feuilles du bas (bottom sheet) */
+  --radius-pill: 9999px; /* gros CTA en pilule façon Wave (24px / 28px / 48px [relevé wave.com]) */
+
+  /* ---------- Ombres ---------- */
+  --shadow-card: 0 1px 1px -0.5px rgba(0, 0, 0, 0.03), 0 3px 3px -1.5px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.06); /* [relevé Polaris] s-section (3 des 6 couches) */
+  --shadow-cta: 0 12px 24px rgba(0, 0, 0, 0.05);  /* [relevé wave.com] .wavebutton / .business-button */
+  --shadow-raised: 0 4px 8px rgba(0, 0, 0, 0.05); /* [relevé wave.com] cartes, menus */
+  --shadow-sheet: 0 -8px 16px -4px rgba(26, 26, 26, 0.22); /* [conçu] inversion verticale de --p-shadow-400 [relevé Polaris] */
+  --shadow-focus: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-focus); /* [conçu] anneau double */
+  --border-control: inset 0 0 0 1px var(--color-border-strong); /* [relevé Polaris] anneau des champs (0.66px agrandi à 1px : conçu) */
+
+  /* ---------- Mouvement ---------- */
+  --duration-fast: 100ms;  /* [relevé Polaris] motion-duration-100 */
+  --duration-base: 150ms;  /* [relevé Polaris] 150ms ; transitions Bootstrap 0.15s [relevé wave.com] */
+  --duration-slow: 250ms;  /* [relevé Polaris] motion-duration-250 (feuilles, toasts) */
+  --ease: cubic-bezier(0.25, 0.1, 0.25, 1);      /* [relevé Polaris] motion-ease */
+  --ease-out: cubic-bezier(0.19, 0.91, 0.38, 1); /* [relevé Polaris] motion-ease-out */
+}
+
+/* ---------- Base conseillée [conçu] ---------- */
+html {
+  font-family: var(--font-sans);
+  font-size: 100%;               /* respecte le réglage de taille de police d'Android */
+  color: var(--color-text);
+  background: var(--color-bg);
+  -webkit-tap-highlight-color: transparent;
+}
+body { font-size: var(--text-md); line-height: var(--leading-md); font-weight: var(--font-weight-regular); }
+
+/* Montant FCFA : chiffres tabulaires + espace fine insécable (U+202F) entre milliers.
+   JS : new Intl.NumberFormat("fr-FR").format(12500) + "\u00A0FCFA"  → "12 500 FCFA" */
+.money { font-feature-settings: var(--font-numeric); font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--color-ink); font-weight: var(--font-weight-bold); }
+.money-currency { font-size: 0.6em; font-weight: var(--font-weight-semibold); color: var(--color-text-muted); margin-left: 0.25em; }
+
+:focus-visible { outline: none; box-shadow: var(--shadow-focus); }
+@media (prefers-reduced-motion: reduce) { * { transition-duration: 0ms !important; animation-duration: 0ms !important; } }

@@ -1,0 +1,25 @@
+{
+  "name": "@vpct/tokens",
+  "version": "0.0.0",
+  "private": true,
+  "exports": {
+    "./vendeurpro/tokens.css": "./vendeurpro/tokens.css",
+    "./vendeurpro/tokens.theme.css": "./vendeurpro/tokens.theme.css",
+    "./vendeurpro/aliases.css": "./vendeurpro/aliases.css",
+    "./vendeurpro/shadcn-bridge.css": "./vendeurpro/shadcn-bridge.css",
+    "./vendeurpro/apex-theme": "./vendeurpro/apex-theme.ts",
+    "./cooptrace/tokens.css": "./cooptrace/tokens.css",
+    "./cooptrace/tokens.theme.css": "./cooptrace/tokens.theme.css",
+    "./cooptrace/shadcn-bridge.css": "./cooptrace/shadcn-bridge.css",
+    "./cooptrace/apex-theme": "./cooptrace/apex-theme.ts",
+    "./cooptrace/gmaps-layers": "./cooptrace/gmaps-layers.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json"
+  },
+  "devDependencies": {
+    "@types/google.maps": "^3.66.4",
+    "apexcharts": "^7.6.1",
+    "typescript": "^5.9.3"
+  }
+}

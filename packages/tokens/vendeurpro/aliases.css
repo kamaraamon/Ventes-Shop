@@ -1,0 +1,10 @@
+/* Alias de classes des maquettes. Les valeurs restent dans tokens.css. */
+@theme inline reference {
+  --color-primary-on: var(--color-on-primary);
+  --color-line: var(--color-border);
+  --color-pay-orange: var(--pay-orange-money);
+  --color-pay-mtn: var(--pay-mtn-momo);
+  --color-whatsapp: var(--share-whatsapp);
+  --shadow-control: var(--border-control);
+  --spacing-nav-bottom: var(--bottom-nav-height);
+}

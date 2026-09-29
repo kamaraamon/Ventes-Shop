@@ -1,0 +1,314 @@
+/* =====================================================================
+   CoopTrace — design tokens v0.1 (généré le 2026-09-28)
+   Légende des commentaires :
+     « relevé eProd »    = valeur observée sur eprod-solutions.com (getComputedStyle / CSS publique)
+     « relevé MapLibre » = valeur observée sur maplibre.org, maplibre-gl.css v6.11.2 ou style OpenFreeMap
+     « conçu »           = valeur créée pour CoopTrace (aucune identité visuelle copiée)
+   Noms neutres, sans préfixe Tailwind (--color-*, --text-*, …) pour éviter
+   toute auto-référence avec tokens.theme.css.
+   ===================================================================== */
+
+:root {
+
+  /* --- Palette « cocoa » : Bruns cacao — marque, navigation, titres --- */
+  --cocoa-50: #FAF4EE; /* conçu */
+  --cocoa-100: #F2E6DA; /* conçu */
+  --cocoa-200: #E3CCB5; /* conçu */
+  --cocoa-300: #CDA886; /* conçu */
+  --cocoa-400: #B0825D; /* conçu */
+  --cocoa-500: #8F6040; /* conçu */
+  --cocoa-600: #744A2F; /* conçu */
+  --cocoa-700: #5C3A25; /* conçu */
+  --cocoa-800: #45291A; /* conçu */
+  --cocoa-900: #2F1C12; /* conçu */
+  --cocoa-950: #1E120B; /* conçu */
+
+  /* --- Palette « clay » : Argile / latérite — accent secondaire, marqueurs --- */
+  --clay-50: #FCF1EB; /* conçu */
+  --clay-100: #F7DFD2; /* conçu */
+  --clay-300: #E4A07F; /* conçu */
+  --clay-500: #C4673F; /* conçu */
+  --clay-600: #A9532F; /* conçu */
+  --clay-700: #8A4325; /* conçu */
+
+  /* --- Palette « sand » : Sable — fonds de page, zébrage --- */
+  --sand-50: #FBF8F3; /* conçu */
+  --sand-100: #F5EFE5; /* conçu */
+  --sand-200: #ECE3D4; /* conçu */
+  --sand-300: #DED0B9; /* conçu */
+  --sand-400: #C9B795; /* conçu */
+
+  /* --- Palette « forest » : Verts végétation/forêt — action principale, « conforme » --- */
+  --forest-50: #EFF7F1; /* conçu */
+  --forest-100: #DCEEE1; /* conçu */
+  --forest-200: #B6DBC2; /* conçu */
+  --forest-300: #86C09B; /* conçu */
+  --forest-400: #55A173; /* conçu */
+  --forest-500: #3A8659; /* conçu */
+  --forest-600: #2B6E47; /* conçu */
+  --forest-700: #22593A; /* conçu */
+  --forest-800: #1B472F; /* conçu */
+  --forest-900: #133321; /* conçu */
+
+  /* --- Palette « ash » : Gris chauds neutres — texte, bordures --- */
+  --ash-50: #F8F6F3; /* conçu */
+  --ash-100: #EFECE7; /* conçu */
+  --ash-200: #E2DDD6; /* conçu */
+  --ash-300: #CBC4BA; /* conçu */
+  --ash-400: #A89F94; /* conçu */
+  --ash-500: #857C71; /* conçu */
+  --ash-600: #685F56; /* conçu */
+  --ash-700: #4F4841; /* conçu */
+  --ash-800: #38332E; /* conçu */
+  --ash-900: #25211D; /* conçu */
+  --ash-950: #171411; /* conçu */
+
+  /* --- Palette « amber » : Ocre/ambre — « à vérifier », « en attente » --- */
+  --amber-50: #FDF6E3; /* conçu */
+  --amber-100: #FAEBC2; /* conçu */
+  --amber-500: #B07D0A; /* conçu */
+  --amber-700: #8A5D00; /* conçu */
+  --amber-800: #6E4A00; /* conçu */
+
+  /* --- Palette « red » : Rouge latérite foncé — « non conforme », alerte déforestation --- */
+  --red-50: #FCEEEC; /* conçu */
+  --red-100: #F8DAD5; /* conçu */
+  --red-500: #CC3B2E; /* conçu */
+  --red-600: #B23126; /* conçu */
+  --red-700: #922820; /* conçu */
+
+  /* --- Rôles sémantiques --- */
+  --surface-page: var(--sand-50); /* conçu — fond d'application chaud (évite le blanc pur éblouissant) */
+  --surface-card: #FFFFFF; /* conçu — cartes, tableaux, formulaires */
+  --surface-sunken: var(--sand-100); /* conçu — zébrage de tableau, zones en retrait */
+  --surface-hover: var(--sand-200); /* conçu — survol de ligne */
+  --surface-selected: var(--forest-50); /* conçu — ligne/élément sélectionné */
+  --surface-nav: var(--cocoa-900); /* conçu — barre latérale / en-tête (bureau) */
+  --surface-inverse: var(--ash-900); /* conçu — bandeau hors ligne, toasts */
+  --fg-default: var(--ash-900); /* conçu — texte principal */
+  --fg-muted: var(--ash-600); /* conçu — texte secondaire, en-têtes de colonnes */
+  --fg-subtle: var(--ash-500); /* conçu — placeholders, icônes inactives (≥3:1, pas pour texte courant) */
+  --fg-on-accent: #FFFFFF; /* conçu — texte sur bouton principal */
+  --fg-on-nav: var(--sand-100); /* conçu — texte sur navigation cacao */
+  --fg-on-nav-muted: var(--cocoa-300); /* conçu — liens inactifs sur navigation cacao */
+  --fg-link: var(--forest-700); /* conçu — liens */
+  --fg-brand: var(--cocoa-800); /* conçu — titres de marque, KPI */
+  --border-default: var(--ash-200); /* conçu — séparateurs, bordures de cartes */
+  --border-strong: var(--ash-300); /* conçu — bordure de tableau d'en-tête */
+  --border-control: var(--ash-500); /* conçu — bordure de champ (≥3:1 non-texte, lisible au soleil) */
+  --border-focus: var(--forest-600); /* conçu — anneau de focus */
+  --accent: var(--forest-700); /* conçu — bouton principal, onglet actif */
+  --accent-hover: var(--forest-800); /* conçu — survol du bouton principal */
+  --accent-soft: var(--forest-50); /* conçu — fond d'accent léger */
+  --brand: var(--cocoa-800); /* conçu — couleur de marque CoopTrace */
+  --brand-accent: var(--clay-600); /* conçu — accent argile (graphiques, marqueurs) */
+  --danger-solid: var(--red-600); /* conçu — bouton destructif */
+  --status-ok-fg: var(--forest-800); /* conçu */
+  --status-ok-bg: var(--forest-50); /* conçu */
+  --status-ok-border: var(--forest-200); /* conçu */
+  --status-ok-dot: var(--forest-500); /* conçu */
+  --status-warn-fg: var(--amber-800); /* conçu */
+  --status-warn-bg: var(--amber-50); /* conçu */
+  --status-warn-border: var(--amber-100); /* conçu */
+  --status-warn-dot: var(--amber-500); /* conçu */
+  --status-danger-fg: var(--red-700); /* conçu */
+  --status-danger-bg: var(--red-50); /* conçu */
+  --status-danger-border: var(--red-100); /* conçu */
+  --status-danger-dot: var(--red-500); /* conçu */
+  --status-neutral-fg: var(--ash-800); /* conçu */
+  --status-neutral-bg: var(--ash-100); /* conçu */
+  --status-neutral-border: var(--ash-200); /* conçu */
+  --status-neutral-dot: var(--ash-500); /* conçu */
+
+  /* --- Statuts métier (alias vers les statuts de base) --- */
+  --badge-conforme-fg: var(--status-ok-fg); /* conçu — Conformité lot/parcelle */
+  --badge-conforme-bg: var(--status-ok-bg); /* conçu */
+  --badge-conforme-border: var(--status-ok-border); /* conçu */
+  --badge-conforme-dot: var(--status-ok-dot); /* conçu */
+  --badge-a-verifier-fg: var(--status-warn-fg); /* conçu — Conformité : à vérifier */
+  --badge-a-verifier-bg: var(--status-warn-bg); /* conçu */
+  --badge-a-verifier-border: var(--status-warn-border); /* conçu */
+  --badge-a-verifier-dot: var(--status-warn-dot); /* conçu */
+  --badge-non-conforme-fg: var(--status-danger-fg); /* conçu — Conformité : non conforme */
+  --badge-non-conforme-bg: var(--status-danger-bg); /* conçu */
+  --badge-non-conforme-border: var(--status-danger-border); /* conçu */
+  --badge-non-conforme-dot: var(--status-danger-dot); /* conçu */
+  --badge-synchronise-fg: var(--status-ok-fg); /* conçu — Synchro : synchronisé */
+  --badge-synchronise-bg: var(--status-ok-bg); /* conçu */
+  --badge-synchronise-border: var(--status-ok-border); /* conçu */
+  --badge-synchronise-dot: var(--status-ok-dot); /* conçu */
+  --badge-sync-en-attente-fg: var(--status-warn-fg); /* conçu — Synchro : en attente d'envoi */
+  --badge-sync-en-attente-bg: var(--status-warn-bg); /* conçu */
+  --badge-sync-en-attente-border: var(--status-warn-border); /* conçu */
+  --badge-sync-en-attente-dot: var(--status-warn-dot); /* conçu */
+  --badge-hors-ligne-fg: var(--status-neutral-fg); /* conçu — Synchro : hors ligne */
+  --badge-hors-ligne-bg: var(--status-neutral-bg); /* conçu */
+  --badge-hors-ligne-border: var(--status-neutral-border); /* conçu */
+  --badge-hors-ligne-dot: var(--status-neutral-dot); /* conçu */
+  --badge-paye-fg: var(--status-ok-fg); /* conçu — Paiement : payé */
+  --badge-paye-bg: var(--status-ok-bg); /* conçu */
+  --badge-paye-border: var(--status-ok-border); /* conçu */
+  --badge-paye-dot: var(--status-ok-dot); /* conçu */
+  --badge-paiement-en-attente-fg: var(--status-warn-fg); /* conçu — Paiement : en attente */
+  --badge-paiement-en-attente-bg: var(--status-warn-bg); /* conçu */
+  --badge-paiement-en-attente-border: var(--status-warn-border); /* conçu */
+  --badge-paiement-en-attente-dot: var(--status-warn-dot); /* conçu */
+
+  /* --- Carte (couches MapLibre des parcelles) --- */
+  --map-plot-fill: var(--forest-500); /* conçu — parcelle conforme — remplissage */
+  --map-plot-fill-opacity: 0.28; /* conçu */
+  --map-plot-stroke: var(--forest-800); /* conçu — parcelle — contour */
+  --map-plot-stroke-width: 1.5; /* conçu — px */
+  --map-plot-verify-fill: var(--amber-500); /* conçu — parcelle à vérifier */
+  --map-plot-verify-stroke: var(--amber-700); /* conçu — contour pointillé [2,1] */
+  --map-plot-selected-stroke: var(--ash-950); /* conçu — parcelle sélectionnée : contour sombre neutre, distinct de tous les statuts */
+  --map-plot-selected-halo: #FFFFFF; /* conçu — liseré blanc sous le contour sélectionné */
+  --map-plot-selected-stroke-width: 3; /* conçu — px (halo 6px) */
+  --map-plot-selected-fill-opacity: 0.45; /* conçu */
+  --map-risk-fill: var(--red-500); /* conçu — zone d'alerte déforestation / non conforme */
+  --map-risk-fill-opacity: 0.35; /* conçu */
+  --map-risk-stroke: var(--red-700); /* conçu — contour pointillé [3,2] */
+  --map-protected-fill: var(--forest-900); /* conçu — forêt classée / aire protégée (couche de référence) */
+  --map-protected-fill-opacity: 0.12; /* conçu */
+  --map-point-collecte: var(--cocoa-700); /* conçu — point de collecte / magasin */
+  --map-point-stroke: #FFFFFF; /* conçu */
+  --map-label: var(--ash-900); /* conçu — étiquettes de parcelles */
+  --map-label-halo: #FFFFFF; /* conçu */
+  --map-basemap-bg: #F2F3F0; /* relevé MapLibre — fond du style OpenFreeMap Positron (background-color rgb(242,243,240)), pour harmoniser */
+  --map-ctrl-size: 29px; /* relevé MapLibre — .maplibregl-ctrl-group button 29px — trop petit pour le terrain */
+  --map-ctrl-size-field: 48px; /* conçu — contrôles carte agrandis sur mobile (cible tactile) */
+  --map-ctrl-corner: 4px; /* relevé MapLibre — .maplibregl-ctrl-group border-radius:4px */
+  --map-ctrl-shadow: 0 0 0 2px rgb(0 0 0 / 0.1); /* relevé MapLibre — .maplibregl-ctrl-group box-shadow */
+
+  /* --- Carte sur imagerie satellite (Google Maps satellite / hybride) : variantes --map-sat-* --- */
+  /* Imagerie cacaoyère = verts sombres + latérite : teintes plus saturées et plus claires que --map-plot-*,
+     contours 2-3 px, liseré clair (casing) sous chaque contour. Google ne fait pas de contour pointillé
+     sur les polygones → statut = couleur + épaisseur + opacité de remplissage (jamais des tirets).
+     Contrastes mesurés contre l'imagerie Esri (zone de Soubré) : voir README « Carte satellite ». */
+  --map-sat-conforme: #4CF0B0; /* conçu — vert menthe vif ; 6.69:1 sur canopée sombre #3B482D, 3.71:1 sur zone claire #6B6C4D */
+  --map-sat-conforme-width: 2; /* conçu — px, trait fin = état normal */
+  --map-sat-conforme-fill-opacity: 0.18; /* conçu */
+  --map-sat-a-verifier: #FFC61A; /* conçu — ambre vif ; 6.20:1 sombre, 3.44:1 clair */
+  --map-sat-a-verifier-width: 3; /* conçu — px, trait épais + remplissage léger = « contour à contrôler » */
+  --map-sat-a-verifier-fill-opacity: 0.10; /* conçu */
+  --map-sat-non-conforme: #FF4B3A; /* conçu — rouge vif ; 2.94:1 sombre seulement → liseré clair OBLIGATOIRE */
+  --map-sat-non-conforme-width: 3; /* conçu — px, trait épais + remplissage dense = alerte */
+  --map-sat-non-conforme-fill-opacity: 0.35; /* conçu — aussi pour les zones d'alerte déforestation */
+  --map-sat-protegee: #C88CFF; /* conçu — violet clair (aire protégée / forêt classée), hors code statut ; 4.02:1 sombre */
+  --map-sat-protegee-width: 2; /* conçu — px */
+  --map-sat-protegee-fill-opacity: 0.10; /* conçu */
+  --map-sat-casing: #FFFFFF; /* conçu — liseré clair sous chaque contour (9.76:1 sombre, 5.42:1 clair) */
+  --map-sat-casing-opacity: 0.85; /* conçu */
+  --map-sat-casing-extra: 3; /* conçu — px ajoutés à l'épaisseur du contour (≈ 1,5 px de liseré de chaque côté) */
+  --map-sat-selected-stroke: var(--ash-950); /* conçu — parcelle sélectionnée : contour sombre neutre… */
+  --map-sat-selected-width: 3; /* conçu — px */
+  --map-sat-selected-halo: #FFFFFF; /* conçu — …posé sur un liseré blanc large (double contour) */
+  --map-sat-selected-halo-width: 9; /* conçu — px (3 px de blanc visibles de chaque côté) */
+  --map-sat-selected-fill-opacity: 0.32; /* conçu — le remplissage garde la couleur du statut */
+  --map-sat-point-fill: #FFFFFF; /* conçu — point de collecte : pastille blanche… */
+  --map-sat-point-ring: var(--cocoa-700); /* conçu — …cerclée de cacao (10.06:1 sur la pastille) */
+  --map-sat-point-glyph: var(--cocoa-800); /* conçu — pictogramme */
+  --map-sat-point-size: 32px; /* conçu — diamètre bureau */
+  --map-sat-point-size-field: 44px; /* conçu — diamètre terrain (cible tactile avec la marge) */
+  --map-sat-point-shadow: 0 1px 4px rgb(0 0 0 / 0.55); /* conçu — détache la pastille de l'imagerie */
+  --map-sat-label: #FFFFFF; /* conçu — étiquettes sur imagerie */
+  --map-sat-label-halo: rgb(0 0 0 / 0.75); /* conçu */
+
+  /* --- Palette graphique catégorielle (ApexCharts, shadcn chart-1…5) --- */
+  /* Ordre = ordre des séries. Toutes ≥ 3:1 sur --surface-card (blanc). Aucune n'est verte, ambre ou rouge :
+     vert = conforme, ambre = à vérifier, rouge = non conforme restent réservés aux statuts.
+     ΔE2000 minimal entre deux couleurs : 18,1 en vision normale, deutéranopie et protanopie (Machado 2009).
+     Détails : chart-palette-report.md. */
+  --chart-1: var(--cocoa-700); /* conçu — cacao #5C3A25 ; 10.06:1 sur blanc, 9.50:1 sur sand-50 */
+  --chart-2: #2F5DA8; /* conçu — bleu indigo ; 6.46:1 sur blanc, 6.10:1 sur sand-50 */
+  --chart-3: #AE8170; /* conçu — argile rosée ; 3.40:1 sur blanc, 3.21:1 sur sand-50 */
+  --chart-4: #58354B; /* conçu — aubergine ; 10.37:1 sur blanc, 9.79:1 sur sand-50 */
+  --chart-5: #7E8BB4; /* conçu — bleu ardoise ; 3.37:1 sur blanc, 3.18:1 sur sand-50 */
+
+  /* --- Typographie --- */
+  --type-family-sans: "IBM Plex Sans", ui-sans-serif, system-ui, "Segoe UI", Roboto, Arial, sans-serif; /* conçu — OFL 1.1 ; chiffres tabulaires par défaut (vérifié : largeur 600 u. pour 0-9). eProd et la doc MapLibre utilisent Inter (relevé) — non retenu pour se distinguer */
+  --type-family-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* conçu — codes lot/parcelle, coordonnées GPS ; usage d'une mono pour le code inspiré de la doc MapLibre (JetBrains Mono 12.8px, relevé MapLibre) */
+  --type-size-2xs: 11px; /* conçu — mentions (attribution, unités) */
+  --type-lh-2xs: 14px; /* conçu */
+  --type-size-xs: 12px; /* relevé eProd — 12px fréquent sur eProd */
+  --type-lh-xs: 16px; /* conçu */
+  --type-size-sm: 13px; /* conçu — cellules de tableau dense */
+  --type-lh-sm: 18px; /* conçu */
+  --type-size-base: 14px; /* relevé eProd — 14px/20px : champs et tableaux eProd ; 14px dominant sur la doc MapLibre */
+  --type-lh-base: 20px; /* relevé eProd */
+  --type-size-md: 16px; /* relevé eProd — 16px/24px corps eProd et MapLibre ; minimum texte mobile terrain */
+  --type-lh-md: 24px; /* relevé eProd */
+  --type-size-lg: 18px; /* conçu */
+  --type-lh-lg: 26px; /* conçu */
+  --type-size-xl: 20px; /* relevé eProd — h3 eProd 20px/28px */
+  --type-lh-xl: 28px; /* relevé eProd */
+  --type-size-2xl: 24px; /* conçu */
+  --type-lh-2xl: 32px; /* conçu */
+  --type-size-3xl: 30px; /* conçu — KPI tonnage */
+  --type-lh-3xl: 36px; /* conçu */
+  --type-size-display: 40px; /* conçu — saisie de pesée mobile (poids en kg) */
+  --type-lh-display: 44px; /* conçu */
+  --type-weight-regular: 400; /* conçu */
+  --type-weight-medium: 500; /* conçu */
+  --type-weight-semibold: 600; /* relevé eProd — th eProd 600 */
+  --type-weight-bold: 700; /* conçu */
+
+  /* --- Formes, ombres --- */
+  --corner-xs: 2px; /* conçu */
+  --corner-sm: 4px; /* relevé MapLibre — contrôles carte et <code> MapLibre 4px */
+  --corner-md: 6px; /* conçu — boutons, champs, badges carrés (aspect sérieux) */
+  --corner-lg: 8px; /* relevé eProd — --radius:.5rem et champs 8px chez eProd ; 8px aussi sur la doc MapLibre */
+  --corner-xl: 12px; /* relevé eProd — cartes eProd 12px */
+  --corner-pill: 9999px; /* relevé eProd — boutons eProd rounded-full — ici réservé aux badges de statut */
+  --elevation-1: 0 1px 3px 0 rgb(47 28 18 / 0.08), 0 1px 2px -1px rgb(47 28 18 / 0.08); /* conçu — géométrie relevée eProd (shadow-sm 0 1px 3px / 0 1px 2px -1px), teinte cacao conçue */
+  --elevation-2: 0 4px 8px -2px rgb(47 28 18 / 0.10), 0 2px 4px -2px rgb(47 28 18 / 0.06); /* conçu — menus, popovers */
+  --elevation-3: 0 12px 24px -6px rgb(47 28 18 / 0.18); /* conçu — modales, feuille mobile */
+  --focus-ring: 0 0 0 3px rgb(43 110 71 / 0.35); /* conçu — forest-600 à 35 % */
+
+  /* --- Espacements (base 4px) --- */
+  --space-0: 0px; /* conçu — échelle 4px (identique à l'échelle Tailwind utilisée par eProd) */
+  --space-0-5: 2px; /* conçu */
+  --space-1: 4px; /* conçu */
+  --space-1-5: 6px; /* conçu */
+  --space-2: 8px; /* conçu */
+  --space-3: 12px; /* conçu */
+  --space-4: 16px; /* conçu */
+  --space-5: 20px; /* conçu */
+  --space-6: 24px; /* conçu */
+  --space-8: 32px; /* conçu */
+  --space-10: 40px; /* conçu */
+  --space-12: 48px; /* conçu */
+  --space-16: 64px; /* conçu */
+
+  /* --- Densité : tableaux bureau & terrain mobile --- */
+  --table-row-h: 40px; /* conçu — ligne de tableau bureau (défaut) */
+  --table-row-h-compact: 36px; /* conçu — ligne dense (liste de lots) */
+  --table-header-h: 36px; /* conçu */
+  --table-cell-px: 12px; /* conçu — eProd : 12px 16px (relevé) — resserré pour la densité */
+  --table-cell-py: 8px; /* conçu */
+  --table-font-size: 13px; /* conçu — + font-variant-numeric: tabular-nums */
+  --control-h-sm: 32px; /* conçu — filtres de tableau */
+  --control-h-md: 36px; /* conçu — boutons/champs bureau */
+  --control-px: 16px; /* relevé eProd — padding horizontal des champs eProd (10px 16px) */
+  --control-py: 10px; /* relevé eProd */
+  --touch-target-min: 48px; /* conçu — cible tactile minimale terrain */
+  --control-h-field: 48px; /* conçu — champ/bouton mobile */
+  --control-h-field-lg: 56px; /* conçu — bouton « Enregistrer la pesée » */
+  --sidebar-w: 240px; /* conçu */
+  --content-max-w: 1440px; /* conçu */
+}
+
+/* Mode terrain (mobile, plein soleil) : ajouter data-density="field" sur <html> ou un conteneur. */
+[data-density="field"] {
+  --type-size-base: 16px; /* conçu — texte courant jamais < 16px dehors */
+  --type-lh-base: 24px; /* conçu */
+  --control-h-md: var(--control-h-field); /* conçu — 48px */
+  --table-row-h: 48px; /* conçu — listes tactiles */
+  --fg-muted: var(--ash-700); /* conçu — secondaire renforcé (8,99:1 sur blanc) */
+  --border-control: var(--ash-600); /* conçu — bordure de champ 6,25:1 */
+  --surface-page: #FFFFFF; /* conçu — fond blanc pur = contraste max au soleil */
+}
+
+/* Chiffres : Plex a des chiffres tabulaires par défaut ; on force tnum pour les polices de repli. */
+.tabular, td.num, [data-num] { font-variant-numeric: tabular-nums; } /* conçu */
+

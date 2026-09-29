@@ -1,0 +1,85 @@
+/* VendeurPro — Tailwind v4. Dans app/globals.css :
+     @import "tailwindcss";
+     @import "./tokens.css";
+     @import "./tokens.theme.css";
+   "inline" : les utilitaires pointent vers les variables de tokens.css.
+   "reference" : Tailwind n'écrit pas ces variables dans :root (évite --x: var(--x)).
+   Les valeurs et leurs sources (relevé / conçu) sont commentées dans tokens.css. */
+@theme inline reference {
+  --color-primary: var(--color-primary);
+  --color-primary-pressed: var(--color-primary-pressed);
+  --color-primary-subtle: var(--color-primary-subtle);
+  --color-on-primary: var(--color-on-primary);
+  --color-ink: var(--color-ink);
+
+  --color-bg: var(--color-bg);
+  --color-surface: var(--color-surface);
+  --color-surface-muted: var(--color-surface-muted);
+  --color-surface-pressed: var(--color-surface-pressed);
+  --color-text: var(--color-text);
+  --color-text-muted: var(--color-text-muted);
+  --color-text-disabled: var(--color-text-disabled);
+  --color-border: var(--color-border);
+  --color-border-strong: var(--color-border-strong);
+  --color-focus: var(--color-focus);
+  --color-link: var(--color-link);
+
+  --color-success-bg: var(--color-success-bg);   --color-success-text: var(--color-success-text);
+  --color-success-fill: var(--color-success-fill); --color-success-surface: var(--color-success-surface);
+  --color-info-bg: var(--color-info-bg);         --color-info-text: var(--color-info-text);
+  --color-info-surface: var(--color-info-surface);
+  --color-warning-bg: var(--color-warning-bg);   --color-warning-text: var(--color-warning-text);
+  --color-warning-fill: var(--color-warning-fill); --color-warning-surface: var(--color-warning-surface);
+  --color-critical-bg: var(--color-critical-bg); --color-critical-text: var(--color-critical-text);
+  --color-critical-fill: var(--color-critical-fill); --color-critical-surface: var(--color-critical-surface);
+  --color-neutral-bg: var(--color-neutral-bg);   --color-neutral-text: var(--color-neutral-text);
+
+  /* Palette graphique catégorielle [conçu] → bg-chart-1 … bg-chart-5 (valeurs dans tokens.css) */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  --color-pay-orange-money: var(--pay-orange-money); /* marque tierce : puces seulement */
+  --color-pay-mtn-momo: var(--pay-mtn-momo);         /* marque tierce : puces seulement */
+  --color-pay-wave: var(--pay-wave);                 /* marque tierce : puces seulement */
+  --color-share-whatsapp: var(--share-whatsapp);     /* marque tierce : icône/pastille seulement */
+
+  --font-sans: var(--font-sans);
+  --font-weight-regular: 450;
+  --font-weight-medium: 550;
+  --font-weight-semibold: 650;
+  --font-weight-bold: 700;
+
+  --text-xs: 12px;      --text-xs--line-height: 16px;
+  --text-sm: 14px;      --text-sm--line-height: 20px;
+  --text-md: 16px;      --text-md--line-height: 24px;
+  --text-lg: 18px;      --text-lg--line-height: 28px;
+  --text-title: 22px;   --text-title--line-height: 28px;   --text-title--font-weight: 650;
+  --text-display: 28px; --text-display--line-height: 36px; --text-display--font-weight: 700; --text-display--letter-spacing: -0.3px;
+  --text-amount: 32px;  --text-amount--line-height: 40px;  --text-amount--font-weight: 700;  --text-amount--letter-spacing: -0.3px;
+  --text-badge: 14px;   --text-badge--line-height: 20px;   --text-badge--font-weight: 550;
+
+  --spacing: 4px;
+  --spacing-touch: 48px;
+  --spacing-cta: 56px;
+  --spacing-gutter: 16px;
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+  --radius-pill: 9999px;
+
+  --shadow-card: var(--shadow-card);
+  --shadow-cta: var(--shadow-cta);
+  --shadow-raised: var(--shadow-raised);
+  --shadow-sheet: var(--shadow-sheet);
+  --shadow-focus: var(--shadow-focus);
+
+  --ease-standard: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --ease-out: cubic-bezier(0.19, 0.91, 0.38, 1);
+  --default-transition-duration: 150ms;
+  --default-transition-timing-function: cubic-bezier(0.25, 0.1, 0.25, 1);
+}

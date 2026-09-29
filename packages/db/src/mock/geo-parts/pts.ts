@@ -1,0 +1,2 @@
+// CoopTrace — géodonnées FICTIVES pour maquettes (parcelles P-0412…P-0418 reprises de style-scout/map-demo, près de Soubré).
+export const part = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"nom":"Magasin Kpéhiri"},"geometry":{"type":"Point","coordinates":[-6.521584,5.833695]}},{"type":"Feature","properties":{"nom":"Magasin Gbalébouo"},"geometry":{"type":"Point","coordinates":[-6.530884,5.830641]}},{"type":"Feature","properties":{"nom":"Point de collecte Zakoua"},"geometry":{"type":"Point","coordinates":[-6.526098,5.82543]}}]};

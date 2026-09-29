@@ -1,0 +1,234 @@
+/* =====================================================================
+   CoopTrace — pont Tailwind v4. À importer APRÈS tokens.css :
+     @import "tailwindcss";
+     @import "./tokens.css";
+     @import "./tokens.theme.css";
+   `inline`    : les utilitaires utilisent directement var(--xxx) → le mode terrain
+                 ([data-density=field]) et toute surcharge en cascade fonctionnent.
+   `reference` : Tailwind n'émet pas ces variables dans :root → pas de doublon ni
+                 d'auto-référence (--color-x: var(--color-x)).
+   Les valeurs et leur provenance (relevé eProd / relevé MapLibre / conçu) sont
+   commentées dans tokens.css ; ici chaque ligne est un simple renvoi.
+   ===================================================================== */
+@theme inline reference {
+  /* Palettes (conçu) */
+  --color-cocoa-50: var(--cocoa-50);
+  --color-cocoa-100: var(--cocoa-100);
+  --color-cocoa-200: var(--cocoa-200);
+  --color-cocoa-300: var(--cocoa-300);
+  --color-cocoa-400: var(--cocoa-400);
+  --color-cocoa-500: var(--cocoa-500);
+  --color-cocoa-600: var(--cocoa-600);
+  --color-cocoa-700: var(--cocoa-700);
+  --color-cocoa-800: var(--cocoa-800);
+  --color-cocoa-900: var(--cocoa-900);
+  --color-cocoa-950: var(--cocoa-950);
+  --color-clay-50: var(--clay-50);
+  --color-clay-100: var(--clay-100);
+  --color-clay-300: var(--clay-300);
+  --color-clay-500: var(--clay-500);
+  --color-clay-600: var(--clay-600);
+  --color-clay-700: var(--clay-700);
+  --color-sand-50: var(--sand-50);
+  --color-sand-100: var(--sand-100);
+  --color-sand-200: var(--sand-200);
+  --color-sand-300: var(--sand-300);
+  --color-sand-400: var(--sand-400);
+  --color-forest-50: var(--forest-50);
+  --color-forest-100: var(--forest-100);
+  --color-forest-200: var(--forest-200);
+  --color-forest-300: var(--forest-300);
+  --color-forest-400: var(--forest-400);
+  --color-forest-500: var(--forest-500);
+  --color-forest-600: var(--forest-600);
+  --color-forest-700: var(--forest-700);
+  --color-forest-800: var(--forest-800);
+  --color-forest-900: var(--forest-900);
+  --color-ash-50: var(--ash-50);
+  --color-ash-100: var(--ash-100);
+  --color-ash-200: var(--ash-200);
+  --color-ash-300: var(--ash-300);
+  --color-ash-400: var(--ash-400);
+  --color-ash-500: var(--ash-500);
+  --color-ash-600: var(--ash-600);
+  --color-ash-700: var(--ash-700);
+  --color-ash-800: var(--ash-800);
+  --color-ash-900: var(--ash-900);
+  --color-ash-950: var(--ash-950);
+  --color-amber-50: var(--amber-50);
+  --color-amber-100: var(--amber-100);
+  --color-amber-500: var(--amber-500);
+  --color-amber-700: var(--amber-700);
+  --color-amber-800: var(--amber-800);
+  --color-red-50: var(--red-50);
+  --color-red-100: var(--red-100);
+  --color-red-500: var(--red-500);
+  --color-red-600: var(--red-600);
+  --color-red-700: var(--red-700);
+
+  /* Rôles sémantiques (conçu) → bg-surface-page, text-fg-muted, border-border-default… */
+  --color-surface-page: var(--surface-page);
+  --color-surface-card: var(--surface-card);
+  --color-surface-sunken: var(--surface-sunken);
+  --color-surface-hover: var(--surface-hover);
+  --color-surface-selected: var(--surface-selected);
+  --color-surface-nav: var(--surface-nav);
+  --color-surface-inverse: var(--surface-inverse);
+  --color-fg-default: var(--fg-default);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-fg-on-accent: var(--fg-on-accent);
+  --color-fg-on-nav: var(--fg-on-nav);
+  --color-fg-on-nav-muted: var(--fg-on-nav-muted);
+  --color-fg-link: var(--fg-link);
+  --color-fg-brand: var(--fg-brand);
+  --color-border-default: var(--border-default);
+  --color-border-strong: var(--border-strong);
+  --color-border-control: var(--border-control);
+  --color-border-focus: var(--border-focus);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
+  --color-brand: var(--brand);
+  --color-brand-accent: var(--brand-accent);
+  --color-danger-solid: var(--danger-solid);
+  --color-status-ok-fg: var(--status-ok-fg);
+  --color-status-ok-bg: var(--status-ok-bg);
+  --color-status-ok-border: var(--status-ok-border);
+  --color-status-ok-dot: var(--status-ok-dot);
+  --color-status-warn-fg: var(--status-warn-fg);
+  --color-status-warn-bg: var(--status-warn-bg);
+  --color-status-warn-border: var(--status-warn-border);
+  --color-status-warn-dot: var(--status-warn-dot);
+  --color-status-danger-fg: var(--status-danger-fg);
+  --color-status-danger-bg: var(--status-danger-bg);
+  --color-status-danger-border: var(--status-danger-border);
+  --color-status-danger-dot: var(--status-danger-dot);
+  --color-status-neutral-fg: var(--status-neutral-fg);
+  --color-status-neutral-bg: var(--status-neutral-bg);
+  --color-status-neutral-border: var(--status-neutral-border);
+  --color-status-neutral-dot: var(--status-neutral-dot);
+
+  /* Statuts métier (conçu) → bg-badge-conforme-bg text-badge-conforme-fg… */
+  --color-badge-conforme-fg: var(--badge-conforme-fg);
+  --color-badge-conforme-bg: var(--badge-conforme-bg);
+  --color-badge-conforme-border: var(--badge-conforme-border);
+  --color-badge-conforme-dot: var(--badge-conforme-dot);
+  --color-badge-a-verifier-fg: var(--badge-a-verifier-fg);
+  --color-badge-a-verifier-bg: var(--badge-a-verifier-bg);
+  --color-badge-a-verifier-border: var(--badge-a-verifier-border);
+  --color-badge-a-verifier-dot: var(--badge-a-verifier-dot);
+  --color-badge-non-conforme-fg: var(--badge-non-conforme-fg);
+  --color-badge-non-conforme-bg: var(--badge-non-conforme-bg);
+  --color-badge-non-conforme-border: var(--badge-non-conforme-border);
+  --color-badge-non-conforme-dot: var(--badge-non-conforme-dot);
+  --color-badge-synchronise-fg: var(--badge-synchronise-fg);
+  --color-badge-synchronise-bg: var(--badge-synchronise-bg);
+  --color-badge-synchronise-border: var(--badge-synchronise-border);
+  --color-badge-synchronise-dot: var(--badge-synchronise-dot);
+  --color-badge-sync-en-attente-fg: var(--badge-sync-en-attente-fg);
+  --color-badge-sync-en-attente-bg: var(--badge-sync-en-attente-bg);
+  --color-badge-sync-en-attente-border: var(--badge-sync-en-attente-border);
+  --color-badge-sync-en-attente-dot: var(--badge-sync-en-attente-dot);
+  --color-badge-hors-ligne-fg: var(--badge-hors-ligne-fg);
+  --color-badge-hors-ligne-bg: var(--badge-hors-ligne-bg);
+  --color-badge-hors-ligne-border: var(--badge-hors-ligne-border);
+  --color-badge-hors-ligne-dot: var(--badge-hors-ligne-dot);
+  --color-badge-paye-fg: var(--badge-paye-fg);
+  --color-badge-paye-bg: var(--badge-paye-bg);
+  --color-badge-paye-border: var(--badge-paye-border);
+  --color-badge-paye-dot: var(--badge-paye-dot);
+  --color-badge-paiement-en-attente-fg: var(--badge-paiement-en-attente-fg);
+  --color-badge-paiement-en-attente-bg: var(--badge-paiement-en-attente-bg);
+  --color-badge-paiement-en-attente-border: var(--badge-paiement-en-attente-border);
+  --color-badge-paiement-en-attente-dot: var(--badge-paiement-en-attente-dot);
+
+  /* Couleurs carte pour légendes HTML (conçu, sauf basemap-bg relevé MapLibre/OpenFreeMap) */
+  --color-map-plot-fill: var(--map-plot-fill);
+  --color-map-plot-stroke: var(--map-plot-stroke);
+  --color-map-plot-verify-fill: var(--map-plot-verify-fill);
+  --color-map-plot-verify-stroke: var(--map-plot-verify-stroke);
+  --color-map-plot-selected-stroke: var(--map-plot-selected-stroke);
+  --color-map-plot-selected-halo: var(--map-plot-selected-halo);
+  --color-map-risk-fill: var(--map-risk-fill);
+  --color-map-risk-stroke: var(--map-risk-stroke);
+  --color-map-protected-fill: var(--map-protected-fill);
+  --color-map-point-collecte: var(--map-point-collecte);
+  --color-map-point-stroke: var(--map-point-stroke);
+  --color-map-label: var(--map-label);
+  --color-map-label-halo: var(--map-label-halo);
+  --color-map-basemap-bg: var(--map-basemap-bg);
+
+  /* Carte satellite (légendes HTML) → bg-map-sat-conforme, border-map-sat-a-verifier… (conçu) */
+  --color-map-sat-conforme: var(--map-sat-conforme);
+  --color-map-sat-a-verifier: var(--map-sat-a-verifier);
+  --color-map-sat-non-conforme: var(--map-sat-non-conforme);
+  --color-map-sat-protegee: var(--map-sat-protegee);
+  --color-map-sat-casing: var(--map-sat-casing);
+  --color-map-sat-selected-stroke: var(--map-sat-selected-stroke);
+  --color-map-sat-selected-halo: var(--map-sat-selected-halo);
+  --color-map-sat-point-fill: var(--map-sat-point-fill);
+  --color-map-sat-point-ring: var(--map-sat-point-ring);
+
+  /* Palette graphique catégorielle (conçu) → bg-chart-1 … bg-chart-5, fill-chart-2… */
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+
+  /* Typographie → font-sans, font-mono, text-2xs … text-display (text-base = 14px, dense) */
+  --font-sans: var(--type-family-sans);
+  --font-mono: var(--type-family-mono);
+  --text-2xs: var(--type-size-2xs);
+  --text-2xs--line-height: var(--type-lh-2xs);
+  --text-xs: var(--type-size-xs);
+  --text-xs--line-height: var(--type-lh-xs);
+  --text-sm: var(--type-size-sm);
+  --text-sm--line-height: var(--type-lh-sm);
+  --text-base: var(--type-size-base);
+  --text-base--line-height: var(--type-lh-base);
+  --text-md: var(--type-size-md);
+  --text-md--line-height: var(--type-lh-md);
+  --text-lg: var(--type-size-lg);
+  --text-lg--line-height: var(--type-lh-lg);
+  --text-xl: var(--type-size-xl);
+  --text-xl--line-height: var(--type-lh-xl);
+  --text-2xl: var(--type-size-2xl);
+  --text-2xl--line-height: var(--type-lh-2xl);
+  --text-3xl: var(--type-size-3xl);
+  --text-3xl--line-height: var(--type-lh-3xl);
+  --text-display: var(--type-size-display);
+  --text-display--line-height: var(--type-lh-display);
+
+  /* Rayons → rounded-xs … rounded-pill */
+  --radius-xs: var(--corner-xs);
+  --radius-sm: var(--corner-sm);
+  --radius-md: var(--corner-md);
+  --radius-lg: var(--corner-lg);
+  --radius-xl: var(--corner-xl);
+  --radius-pill: var(--corner-pill);
+
+  /* Ombres → shadow-card, shadow-popover, shadow-modal, shadow-focus, shadow-map-ctrl */
+  --shadow-card: var(--elevation-1);
+  --shadow-popover: var(--elevation-2);
+  --shadow-modal: var(--elevation-3);
+  --shadow-focus: var(--focus-ring);
+  --shadow-map-ctrl: var(--map-ctrl-shadow);
+
+  /* Tailles nommées → h-row, h-row-compact, h-control, min-h-touch, h-field-lg, w-sidebar… */
+  --spacing-row: var(--table-row-h);
+  --spacing-row-compact: var(--table-row-h-compact);
+  --spacing-row-header: var(--table-header-h);
+  --spacing-cell-x: var(--table-cell-px);
+  --spacing-cell-y: var(--table-cell-py);
+  --spacing-control-sm: var(--control-h-sm);
+  --spacing-control: var(--control-h-md);
+  --spacing-touch: var(--touch-target-min);
+  --spacing-field: var(--control-h-field);
+  --spacing-field-lg: var(--control-h-field-lg);
+  --spacing-map-ctrl: var(--map-ctrl-size);
+  --spacing-map-ctrl-field: var(--map-ctrl-size-field);
+  --spacing-sidebar: var(--sidebar-w);
+  --spacing-content: var(--content-max-w);
+}

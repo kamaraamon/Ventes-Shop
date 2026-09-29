@@ -1,0 +1,114 @@
+/* =====================================================================
+   CoopTrace — pont shadcn/ui ↔ tokens (Tailwind CSS v4)
+   Ordre d'import dans app/globals.css (ou dans le paquet de tokens partagé) :
+     @import "tailwindcss";
+     @import "tw-animate-css";          (si shadcn l'a installé)
+     @import "./tokens.css";            1. valeurs + mode terrain [data-density="field"]
+     @import "./tokens.theme.css";      2. utilitaires CoopTrace (bg-surface-page, bg-accent…)
+     @import "./shadcn-bridge.css";     3. ce fichier : variables et utilitaires shadcn
+   Format : celui de la doc shadcn (ui.shadcn.com/docs/theming, vérifiée le 28/09/2026) :
+   variables brutes, puis exposition à Tailwind via @theme inline.
+
+   MODE TERRAIN : les variables shadcn renvoient aux rôles (var(--surface-page), var(--fg-muted)…),
+   jamais à des hex. Elles sont déclarées sur `:root` ET sur `[data-density]` : une variable qui
+   contient var() est résolue sur l'élément qui la déclare, puis héritée telle quelle. Sans la
+   redéclaration sur [data-density], un conteneur data-density="field" hériterait des valeurs bureau
+   déjà calculées sur <html>. (Avec data-density sur <html>, :root suffirait.)
+
+   CONFLIT DE NOMS « accent » (décision) :
+   - Dans CoopTrace, --accent (tokens.css) et bg-accent (tokens.theme.css) = vert forêt du bouton
+     principal. Dans shadcn, « accent » = fond de SURVOL (menus, boutons ghost, lignes survolées).
+   - On ne casse rien : --accent et --color-accent ne sont PAS redéclarés ici ; bg-accent reste le vert.
+   - Le sens shadcn est exposé sous un nom neuf : --ui-accent / --ui-accent-foreground
+     → classes bg-ui-accent, text-ui-accent-foreground (= surface-hover / fg-default).
+   - Après chaque `npx shadcn@latest add …`, lancer sur le dossier des composants shadcn SEULEMENT
+     (jamais sur le code applicatif) le codemod du README qui remplace bg-accent → bg-ui-accent, etc.
+   - Filet de sécurité : --accent-foreground = blanc. Un composant shadcn non migré affiche donc
+     « vert forêt + texte blanc » au survol (8.21:1) : plus appuyé que prévu, mais lisible.
+   Autres collisions : aucune (border, input, ring, muted, card, primary… n'existent pas encore côté
+   CoopTrace). Rayons : --radius-xs…xl gardés de tokens.theme.css (2/4/6/8/12 px) ; --radius = 8px.
+   ===================================================================== */
+
+:root,
+[data-density] {
+  --radius: var(--corner-lg);                       /* 8px = radius-lg (convention shadcn) */
+
+  --background: var(--surface-page);                /* sable ; blanc pur en mode terrain */
+  --foreground: var(--fg-default);                  /* 15.98:1 sur blanc */
+  --card: var(--surface-card);
+  --card-foreground: var(--fg-default);
+  --popover: var(--surface-card);
+  --popover-foreground: var(--fg-default);
+  --primary: var(--accent);                         /* vert forêt de marque (bouton principal) */
+  --primary-foreground: var(--fg-on-accent);        /* 8.21:1 */
+  --secondary: var(--cocoa-100);                    /* bouton plein discret, teinte cacao */
+  --secondary-foreground: var(--fg-brand);          /* 10.79:1 */
+  --muted: var(--surface-sunken);
+  --muted-foreground: var(--fg-muted);              /* 6.25:1 sur blanc ; 8.99:1 en mode terrain */
+  /* --accent : NON redéclaré (reste le vert de marque, voir en-tête) */
+  --accent-foreground: var(--fg-on-accent);         /* texte sur bg-accent (vert) : blanc */
+  --ui-accent: var(--surface-hover);                /* sens shadcn de « accent » : fond de survol */
+  --ui-accent-foreground: var(--fg-default);        /* 12.56:1 */
+  --destructive: var(--danger-solid);               /* blanc dessus 6.25:1 */
+  --border: var(--border-default);
+  --input: var(--border-control);                   /* 4.10:1 ; 6.25:1 en mode terrain */
+  --ring: var(--border-focus);
+
+  /* --chart-1 … --chart-5 : déjà définis dans tokens.css (une redéclaration var(--chart-1) sur
+     elle-même serait circulaire, donc invalide). */
+
+  --sidebar: var(--surface-nav);                    /* cacao foncé #2F1C12 */
+  --sidebar-foreground: var(--fg-on-nav);           /* 14.17:1 */
+  --sidebar-primary: var(--forest-300);             /* élément actif : pastille verte claire, 7.74:1 sur le cacao */
+  --sidebar-primary-foreground: var(--forest-900);  /* 6.58:1 */
+  --sidebar-accent: var(--cocoa-700);               /* survol dans la barre latérale */
+  --sidebar-accent-foreground: var(--fg-on-nav);    /* 8.80:1 */
+  --sidebar-border: var(--cocoa-800);
+  --sidebar-ring: var(--forest-300);                /* focus visible sur fond sombre, 7.74:1 */
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  /* --color-accent : défini par tokens.theme.css (vert de marque) — volontairement pas redéclaré */
+  --color-accent-foreground: var(--accent-foreground);
+  --color-ui-accent: var(--ui-accent);
+  --color-ui-accent-foreground: var(--ui-accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  /* --color-chart-1 … 5 : déjà exposés par tokens.theme.css (identiques à la doc shadcn) */
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  /* --radius-xs … --radius-xl : gardés de tokens.theme.css ; 2xl à 4xl dérivés de --radius (nouveaux) */
+  --radius-2xl: calc(var(--radius) * 1.8);
+  --radius-3xl: calc(var(--radius) * 2.2);
+  --radius-4xl: calc(var(--radius) * 2.6);
+}
+
+/* Base shadcn (doc « Default Theme CSS ») */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "verbatimModuleSyntax": true,
+    "noEmit": true,
+    "skipLibCheck": true,
+    "types": ["google.maps"]
+  },
+  "include": ["vendeurpro/apex-theme.ts", "cooptrace/apex-theme.ts", "cooptrace/gmaps-layers.ts"]
+}

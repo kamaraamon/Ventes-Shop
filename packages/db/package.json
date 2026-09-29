@@ -1,0 +1,30 @@
+{
+  "name": "@vpct/db",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./server": "./src/server.ts",
+    "./mock": "./src/mock/index.ts",
+    "./schema": "./src/schema/index.ts"
+  },
+  "scripts": {
+    "lint": "eslint src --ignore-pattern src/mock/cooptrace-geo.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "generate": "drizzle-kit generate"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.1.0",
+    "@vpct/config": "workspace:*",
+    "drizzle-orm": "^0.45.3",
+    "server-only": "^0.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "drizzle-kit": "^0.31.11",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.4"
+  }
+}

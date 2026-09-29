@@ -1,0 +1,2 @@
+// CoopTrace — géodonnées FICTIVES pour maquettes (parcelles P-0412…P-0418 reprises de style-scout/map-demo, près de Soubré).
+export const part = {"type":"FeatureCollection","features":[{"type":"Feature","properties":{"nom":"Forêt classée (fictive)"},"geometry":{"type":"Polygon","coordinates":[[[-6.517069,5.839085],[-6.510567,5.839803],[-6.505601,5.837288],[-6.505149,5.82561],[-6.510116,5.819771],[-6.515804,5.824712],[-6.516888,5.828305],[-6.51743,5.83118],[-6.517069,5.839085]]]}}]};
